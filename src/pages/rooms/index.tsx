@@ -12,7 +12,6 @@ import { Icon } from "@iconify/react";
 import { rooms, amenityIcons } from "./room-data";
 
 type AmenityKey = keyof typeof amenityIcons;
-type Room = (typeof rooms)[0];
 
 const RoomCard = ({ room }: { room: (typeof rooms)[0] }) => {
   const navigate = useNavigate();
