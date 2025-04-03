@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "@heroui/react";
 import { BookingForm } from "../../components/booking-form";
 import { FacilitiesSection } from "../../components/facilities-section";
@@ -25,6 +24,7 @@ const Home = () => {
             className="bg-[#FFD700] hover:bg-[#DAA520]">
             EXPLORE
           </Button>
+          s
         </div>
       </section>
 

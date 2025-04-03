@@ -1,4 +1,3 @@
-import React from "react";
 import { Card, CardBody, Image } from "@heroui/react";
 import { Icon } from "@iconify/react";
 
