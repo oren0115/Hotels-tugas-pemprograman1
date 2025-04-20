@@ -1,29 +1,9 @@
 import { Card, CardBody, Button } from "@heroui/react";
+import { pressReleases } from "@/pages/press/press.article";
 
 const Press = () => {
-  const pressReleases = [
-    {
-      title: "Hotel Expansion Announcement",
-      date: "March 15, 2024",
-      summary:
-        "We are excited to announce our plans for expansion, adding 50 new luxury suites to our property.",
-    },
-    {
-      title: "New Executive Chef Appointment",
-      date: "March 1, 2024",
-      summary:
-        "Welcome our new Executive Chef, bringing 15 years of international culinary experience.",
-    },
-    {
-      title: "Sustainability Initiative Launch",
-      date: "February 15, 2024",
-      summary:
-        "Launching our new sustainability program aimed at reducing our carbon footprint by 30%.",
-    },
-  ];
-
   return (
-    <div className="container mx-auto py-16">
+    <div className="container mx-auto py-16 m-5">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold mb-4">Press Room</h1>
         <p className="text-gray-600 max-w-2xl mx-auto">

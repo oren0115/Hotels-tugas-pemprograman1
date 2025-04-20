@@ -7,12 +7,12 @@ export const rooms = [
     size: "28m²",
     occupancy: "2 Adults",
     beds: "2 Single Beds",
-    image: "https://picsum.photos/seed/room1/800/500",
+    image: "/img/rooms/standard-twin.jpg",
     amenities: ["wifi", "tv", "shower", "coffee"],
     additionalImages: [
-      "https://picsum.photos/seed/room1a/800/500",
-      "https://picsum.photos/seed/room1b/800/500",
-      "https://picsum.photos/seed/room1c/800/500",
+      "/img/rooms/detail-rooms-standard-twin1.jpg",
+      "/img/rooms/detail-rooms-standard-twin2.jpg",
+      "/img/rooms/detail-rooms-standard-twin3.jpg",
     ],
     features: [
       "Daily housekeeping",
@@ -37,12 +37,12 @@ export const rooms = [
     size: "32m²",
     occupancy: "2 Adults",
     beds: "1 Queen Bed",
-    image: "https://picsum.photos/seed/room2/800/500",
+    image: "/img/rooms/standard.jpg",
     amenities: ["wifi", "tv", "shower", "coffee", "minibar"],
     additionalImages: [
-      "https://picsum.photos/seed/room2a/800/500",
-      "https://picsum.photos/seed/room2b/800/500",
-      "https://picsum.photos/seed/room2c/800/500",
+      "/img/rooms/standard-rooms-detail1.jpg",
+      "/img/rooms/standard-rooms-detail2.jpg",
+      "/img/rooms/standard-rooms-detail3.jpg",
     ],
     features: [
       "Daily housekeeping",
@@ -68,12 +68,12 @@ export const rooms = [
     size: "35m²",
     occupancy: "2 Adults, 1 Child",
     beds: "1 King Bed",
-    image: "https://picsum.photos/seed/room3/800/500",
+    image: "/img/rooms/standard-view-rooms.jpg",
     amenities: ["wifi", "tv", "shower", "coffee", "minibar", "workspace"],
     additionalImages: [
-      "https://picsum.photos/seed/room3a/800/500",
-      "https://picsum.photos/seed/room3b/800/500",
-      "https://picsum.photos/seed/room3c/800/500",
+      "/img/rooms/standard-view-rooms-detail1.jpg",
+      "/img/rooms/standard-view-rooms-detail2.jpg",
+      "/img/rooms/standard-view-rooms-detail3.jpg",
     ],
     features: [
       "Daily housekeeping",
@@ -100,7 +100,7 @@ export const rooms = [
     size: "45m²",
     occupancy: "2 Adults, 2 Children",
     beds: "1 King Bed, 1 Sofa Bed",
-    image: "https://picsum.photos/seed/room4/800/500",
+    image: "/img/rooms/deluxe-rooms.jpg",
     amenities: [
       "wifi",
       "tv",
@@ -111,9 +111,9 @@ export const rooms = [
       "bathtub",
     ],
     additionalImages: [
-      "https://picsum.photos/seed/room4a/800/500",
-      "https://picsum.photos/seed/room4b/800/500",
-      "https://picsum.photos/seed/room4c/800/500",
+      "/img/rooms/deluxe-rooms-details.jpg",
+      "/img/rooms/deluxe-rooms-details2.jpg",
+      "/img/rooms/deluxe-rooms-details3.jpg",
     ],
     features: [
       "Daily housekeeping",

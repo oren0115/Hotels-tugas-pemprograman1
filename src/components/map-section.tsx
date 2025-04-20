@@ -1,13 +1,13 @@
 import React from "react";
-import { Card, CardBody } from "@heroui/react";
+import { Card, CardBody, Image } from "@heroui/react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 
 export const MapSection = () => {
   return (
-    <section className="py-16 bg-default-50">
+    <section className="py-16 bg-default-50 m-5">
       <div className="container mx-auto px-section">
         <div className="text-center mb-12">
-          <h2 className="text-3xl gont-bold mb-4">Location</h2>
+          <h2 className="text-3xl gont-bold mb-4 font-bold">Location</h2>
           <p className="text-default-500 max-w-2xl mx-auto">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab libero
             pariatur, molestiae quis animi maiores, aut mollitia vel incidunt
@@ -17,11 +17,11 @@ export const MapSection = () => {
         <Card>
           <CardBody>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="h-[400px] bg-default-100 rounded-lg relative">
+              <div className="h-[329px] bg-default-100 rounded-lg relative">
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <Icon
-                    className="w-16 h-16 text-default-300"
-                    icon="lucide:map"
+                  <Image
+                    className="w-full h-full object-cover"
+                    src="/img/maps.png"
                   />
                 </div>
               </div>

@@ -115,7 +115,7 @@ export const Footer = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-default-600">
-            © 2024 Bon Hotel. All rights reserved.
+            ©2025 Tangerang Hotels. All rights reserved.
           </p>
           <div className="flex gap-4">
             {socialLinks.map((link) => (

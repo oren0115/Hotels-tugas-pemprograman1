@@ -1,4 +1,4 @@
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import {
   Navbar as HeroNavbar,
@@ -9,6 +9,7 @@ import {
   NavbarMenu,
   NavbarMenuToggle,
   NavbarMenuItem,
+  Button
 } from "@heroui/react";
 
 export const AcmeLogo = () => {
@@ -26,16 +27,17 @@ export const AcmeLogo = () => {
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const menuItems = [
     { name: "Our Hotels", path: "/" },
     { name: "Explore", path: "/explore" },
     { name: "Rooms & Rates", path: "/rooms" },
     { name: "Facilities", path: "/facilities" },
-    { name: "About Us", path: "/about" },
-    { name: "Careers", path: "/careers" },
-    { name: "Press", path: "/press" },
-    { name: "Blog", path: "/blog" },
+    // { name: "About Us", path: "/about" },
+    // { name: "Careers", path: "/careers" },
+    // { name: "Press", path: "/press" },
+    // { name: "Blog", path: "/blog" },
     { name: "Contact Us", path: "/contact" },
   ];
 
@@ -43,7 +45,7 @@ export const Navbar = () => {
     <HeroNavbar
       maxWidth="xl"
       height="header"
-      className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md"
+      className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md p-5"
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent className="sm:hidden" justify="start">
@@ -56,18 +58,18 @@ export const Navbar = () => {
       <NavbarContent className="sm:hidden pr-3" justify="center">
         <NavbarBrand>
           <AcmeLogo />
-          <p className="font-bold text-inherit">HOtels</p>
+          <Link className="font-bold text-inherit" onClick={() => navigate("/")}>Tangerang Hotels</Link>
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarBrand>
+      <NavbarContent className="hidden sm:flex gap-4" justify="end">
+        <NavbarBrand >
           <AcmeLogo />
-          <p className="font-bold text-inherit">HOtels</p>
+          <Link className="font-bold text-inherit" onClick={() => navigate("/")}>Tangerang Hotels</Link>
         </NavbarBrand>
         {menuItems.map((item) => (
-          <NavbarItem key={item.path}>
-            <Link as={RouterLink} to={item.path}>
+          <NavbarItem key={item.path} >
+            <Link as={RouterLink} to={item.path} className="font-medium text-inherit">
               {item.name}
             </Link>
           </NavbarItem>
@@ -81,7 +83,7 @@ export const Navbar = () => {
               as={RouterLink}
               to={item.path}
               size="lg"
-              className="w-full"
+              className="w-full text-inherit font-medium"
               onClick={() => setIsMenuOpen(false)}>
               {item.name}
             </Link>

@@ -8,7 +8,7 @@ const facilities = [
     description:
       "Temperature-controlled infinity pool with panoramic city views. Open daily from 6 AM to 10 PM.",
     icon: "lucide:pool",
-    image: "https://picsum.photos/seed/pool/800/400",
+    image: "/img/fasility/swimming-pool.jpg",
     features: [
       "Temperature controlled",
       "Towel service",
@@ -22,7 +22,7 @@ const facilities = [
     description:
       "State-of-the-art equipment and personal training services available 24/7.",
     icon: "lucide:dumbbell",
-    image: "https://picsum.photos/seed/gym/800/400",
+    image: "/img/fasility/gym.jpg",
     features: [
       "24/7 access",
       "Personal trainers",
@@ -36,7 +36,7 @@ const facilities = [
     description:
       "Fine dining experience with international cuisine and local specialties.",
     icon: "lucide:utensils",
-    image: "https://picsum.photos/seed/restaurant/800/400",
+    image: "/img/fasility/geurmet-food.jpg",
     features: [
       "Breakfast buffet",
       "À la carte dining",
@@ -49,7 +49,7 @@ const facilities = [
     title: "Business Center",
     description: "Fully equipped meeting rooms and conference facilities.",
     icon: "lucide:briefcase",
-    image: "https://picsum.photos/seed/business/800/400",
+    image: "/img/fasility/bussines-center.jpg",
     features: [
       "Meeting rooms",
       "Video conferencing",
@@ -63,7 +63,7 @@ const facilities = [
     description:
       "Relaxation and rejuvenation with professional spa treatments.",
     icon: "lucide:flower",
-    image: "https://picsum.photos/seed/spa/800/400",
+    image: "/img/fasility/spa.jpg",
     features: ["Massage therapy", "Sauna", "Steam room", "Beauty salon"],
   },
 ];

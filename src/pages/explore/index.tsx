@@ -8,52 +8,101 @@ import {
   SelectItem,
   DateRangePicker,
   Spinner,
+  Image,
 } from "@heroui/react";
-import { parseDate, CalendarDate } from "@internationalized/date";
+import { Icon } from "@iconify/react";
+import { rooms, amenityIcons } from "@/pages/rooms/room-data";
+
+// Define the AmenityKey type based on the amenityIcons object
+type AmenityKey = keyof typeof amenityIcons;
 
 const locations = [
-  { id: "nyc", name: "New York", country: "USA" },
-  { id: "lon", name: "London", country: "UK" },
-  { id: "par", name: "Paris", country: "France" },
-  { id: "tok", name: "Tokyo", country: "Japan" },
-  { id: "dub", name: "Dubai", country: "UAE" },
+  { id: "std", name: "Standard Room", cities: "Tangerang" },
+  { id: "stdtwin", name: "Standard Twin Room", cities: "Tangerang" },
+  { id: "stdview", name: "Standard View Room", cities: "Tangerang" },
 ];
 
-const mockResults = [
-  {
-    id: 1,
-    name: "Luxury City Hotel",
-    location: "New York",
-    price: "$299",
-    rating: 4.8,
-    image: "https://picsum.photos/seed/hotel1/400/250",
-    amenities: ["Pool", "Spa", "Restaurant", "Gym"],
-  },
-  {
-    id: 2,
-    name: "Harbor View Resort",
-    location: "New York",
-    price: "$399",
-    rating: 4.9,
-    image: "https://picsum.photos/seed/hotel2/400/250",
-    amenities: ["Beach Access", "Pool", "Restaurant", "Bar"],
-  },
-  {
-    id: 3,
-    name: "Downtown Boutique Hotel",
-    location: "New York",
-    price: "$199",
-    rating: 4.5,
-    image: "https://picsum.photos/seed/hotel3/400/250",
-    amenities: ["Restaurant", "Bar", "Business Center"],
-  },
-];
+// RoomCard component to display a single room
+const RoomCard = ({ room }: { room: (typeof rooms)[0] }) => {
+  const navigate = useNavigate();
 
+  return (
+    <Card className="mb-8">
+      <CardBody>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Image
+            removeWrapper
+            alt={room.title}
+            className="w-full h-[300px] object-cover rounded-lg"
+            src={room.image}
+          />
+          <div className="flex flex-col">
+            <div>
+              <h2 className="text-2xl font-bold mb-2">{room.title}</h2>
+              <p className="text-default-500 mb-4">{room.description}</p>
+
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                <div>
+                  <p className="text-sm text-default-500">Room Size</p>
+                  <p className="font-semibold">{room.size}</p>
+                </div>
+                <div>
+                  <p className="text-sm text-default-500">Occupancy</p>
+                  <p className="font-semibold">{room.occupancy}</p>
+                </div>
+                <div>
+                  <p className="text-sm text-default-500">Bed Type</p>
+                  <p className="font-semibold">{room.beds}</p>
+                </div>
+                <div>
+                  <p className="text-sm text-default-500">Price per night</p>
+                  <p className="font-semibold text-gold">${room.price}</p>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-4 mb-6">
+                {room.amenities.map((amenity) => (
+                  <div key={amenity} className="flex items-center gap-1">
+                    <Icon
+                      icon={amenityIcons[amenity as AmenityKey].icon}
+                      className="w-4 h-4 text-default-500"
+                    />
+                    <span className="text-sm text-default-500">
+                      {amenityIcons[amenity as AmenityKey].label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex gap-4 mt-auto">
+              <Button
+                color="primary"
+                size="lg"
+                className="flex-1"
+                onPress={() => navigate(`/rooms/${room.id}`)}>
+                View Details
+              </Button>
+              <Button
+                variant="flat"
+                size="lg"
+                onPress={() => navigate("/contact", { replace: true })}>
+                Inquire
+              </Button>
+            </div>
+          </div>
+        </div>
+      </CardBody>
+    </Card>
+  );
+};
+
+// Main Explore component
 export const Explore = () => {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [isSearching, setIsSearching] = React.useState(false);
-  const [results, setResults] = React.useState<typeof mockResults | null>(null);
+  const [results, setResults] = React.useState<typeof rooms | null>(null);
 
   const selectedLocation = searchParams.get("location") || "";
   const startDate = searchParams.get("startDate");
@@ -65,7 +114,20 @@ export const Explore = () => {
     setIsSearching(true);
     // Simulate API call
     setTimeout(() => {
-      setResults(mockResults);
+      // Filter rooms based on selected room type
+      const filteredResults = rooms.filter(room => {
+        switch (selectedLocation) {
+          case "std":
+            return room.title === "Standard Room";
+          case "stdtwin":
+            return room.title === "Standard Twin Room";
+          case "stdview":
+            return room.title === "Standard View Room";
+          default:
+            return true;
+        }
+      });
+      setResults(filteredResults);
       setIsSearching(false);
     }, 1500);
   };
@@ -87,7 +149,7 @@ export const Explore = () => {
   };
 
   const handleDateChange = (
-    range: { start: CalendarDate; end: CalendarDate } | null
+    range: { start: any; end: any } | null
   ) => {
     if (!range) return;
 
@@ -101,16 +163,16 @@ export const Explore = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Search Section */}
-      <div className="bg-primary-500 text-white py-16">
+      <div className="bg-primary-500 text-white py-16 m-5">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold text-center mb-8">
-            Find Your Perfect Stay
+            Find Your Perfect Rooms
           </h1>
           <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Select
-                label="Where would you like to stay?"
-                placeholder="Select a location"
+                label="Which room do you choose?"
+                placeholder="Select a Room"
                 value={selectedLocation}
                 onChange={handleLocationChange}>
                 {locations.map((location) => (
@@ -118,7 +180,7 @@ export const Explore = () => {
                     <div className="flex flex-col">
                       <span>{location.name}</span>
                       <span className="text-sm text-gray-500">
-                        {location.country}
+                        {location.cities}
                       </span>
                     </div>
                   </SelectItem>
@@ -128,10 +190,6 @@ export const Explore = () => {
               <DateRangePicker
                 label="When would you like to stay?"
                 aria-label="Select check-in and check-out dates"
-                defaultValue={{
-                  start: parseDate("2024-04-01"),
-                  end: parseDate("2024-04-07"),
-                }}
                 onChange={handleDateChange}
               />
             </div>
@@ -146,48 +204,9 @@ export const Explore = () => {
             <Spinner size="lg" color="primary" />
           </div>
         ) : results ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {results.map((hotel) => (
-              <Card
-                key={hotel.id}
-                className="hover:shadow-lg transition-shadow">
-                <CardBody className="p-0">
-                  <img
-                    src={hotel.image}
-                    alt={hotel.name}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-4">
-                    <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-xl font-semibold">{hotel.name}</h3>
-                      <span className="text-lg font-bold text-primary">
-                        {hotel.price}
-                        <span className="text-sm text-gray-500">/night</span>
-                      </span>
-                    </div>
-                    <p className="text-gray-600 mb-2">{hotel.location}</p>
-                    <div className="flex items-center mb-4">
-                      <span className="text-primary mr-1">★</span>
-                      <span className="font-medium">{hotel.rating}</span>
-                    </div>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {hotel.amenities.map((amenity) => (
-                        <span
-                          key={amenity}
-                          className="px-2 py-1 bg-primary-100 text-primary-700 rounded-full text-sm">
-                          {amenity}
-                        </span>
-                      ))}
-                    </div>
-                    <Button
-                      color="primary"
-                      className="w-full"
-                      onClick={() => navigate(`/hotels/${hotel.id}`)}>
-                      View Details
-                    </Button>
-                  </div>
-                </CardBody>
-              </Card>
+          <div className="space-y-8">
+            {results.map((room) => (
+              <RoomCard key={room.id} room={room} />
             ))}
           </div>
         ) : (
