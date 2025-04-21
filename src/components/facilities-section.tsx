@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 
 const facilities = [
   { icon: "lucide:utensils", name: "Restaurant" },
-  { icon: "lucide:swimming-pool", name: "Pool" },
+  { icon: "mdi:pool", name: "Pool" },
   { icon: "lucide:wifi", name: "Free Wifi" },
   { icon: "lucide:dumbbell", name: "Gym" },
   { icon: "lucide:car", name: "Free Parking" },

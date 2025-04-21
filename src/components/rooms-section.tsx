@@ -4,7 +4,14 @@ import { Card, CardBody, Button, Image } from "@heroui/react";
 import { Icon } from "@iconify/react";
 // import { title } from "process";
 
-type AmenityType = "wifi" | "tv" | "shower" | "coffee" | "minibar" | "workspace" | "bathtub";
+type AmenityType =
+  | "wifi"
+  | "tv"
+  | "shower"
+  | "coffee"
+  | "minibar"
+  | "workspace"
+  | "bathtub";
 
 interface Room {
   id: number;
@@ -61,7 +68,15 @@ const rooms: Room[] = [
     occupancy: "2 Adults, 2 Children",
     beds: "1 King Bed, 1 Sofa Bed",
     image: "/img/rooms/deluxe-rooms.jpg",
-    amenities: ["wifi", "tv", "shower", "coffee", "minibar", "workspace", "bathtub"],
+    amenities: [
+      "wifi",
+      "tv",
+      "shower",
+      "coffee",
+      "minibar",
+      "workspace",
+      "bathtub",
+    ],
   },
 ];
 
@@ -83,7 +98,8 @@ export const RoomsSection = () => {
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-4">Rooms & Rates</h2>
         <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-          Discover our carefully curated selection of rooms, each designed to provide the perfect blend of comfort and luxury for your stay.
+          Discover our carefully curated selection of rooms, each designed to
+          provide the perfect blend of comfort and luxury for your stay.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {rooms.map((room) => (
@@ -99,7 +115,9 @@ export const RoomsSection = () => {
                 />
                 <div className="p-4">
                   <h3 className="text-lg font-semibold mb-2">{room.title}</h3>
-                  <p className="text-gray-600 text-sm mb-3">{room.description}</p>
+                  <p className="text-gray-600 text-sm mb-3">
+                    {room.description}
+                  </p>
                   <div className="flex items-center gap-4 mb-3">
                     <div className="flex items-center gap-1">
                       <Icon icon="lucide:users" className="w-4 h-4" />
@@ -112,12 +130,19 @@ export const RoomsSection = () => {
                   </div>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {room.amenities.slice(0, 3).map((amenity) => (
-                      <div key={amenity} className="flex items-center gap-1 text-sm text-gray-600">
-                        <Icon icon={amenityIcons[amenity].icon} className="w-4 h-4" />
+                      <div
+                        key={amenity}
+                        className="flex items-center gap-1 text-sm text-gray-600">
+                        <Icon
+                          icon={amenityIcons[amenity].icon}
+                          className="w-4 h-4"
+                        />
                       </div>
                     ))}
                     {room.amenities.length > 3 && (
-                      <span className="text-sm text-gray-500">+{room.amenities.length - 3} more</span>
+                      <span className="text-sm text-gray-500">
+                        +{room.amenities.length - 3} more
+                      </span>
                     )}
                   </div>
                   <div className="flex items-center justify-between mb-4">
