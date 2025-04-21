@@ -7,6 +7,7 @@ export default defineConfig({
   plugins: [react(), tsconfigPaths()],
   build: {
     // Ignore TypeScript errors during build
+    outDir: "dist",
     rollupOptions: {
       onwarn(warning, warn) {
         // Ignore TypeScript errors
