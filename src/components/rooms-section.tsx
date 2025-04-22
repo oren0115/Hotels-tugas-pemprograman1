@@ -2,7 +2,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, CardBody, Button, Image } from "@heroui/react";
 import { Icon } from "@iconify/react";
-// import { title } from "process";
 
 type AmenityType =
   | "wifi"
@@ -28,45 +27,47 @@ interface Room {
 const rooms: Room[] = [
   {
     id: 1,
-    title: "Standard Twin Room",
-    description: "Perfect for sharing, featuring two comfortable single beds",
+    title: "Kamar Standard Twin",
+    description:
+      "Cocok untuk berbagi, dilengkapi dengan dua tempat tidur single yang nyaman",
     price: 199999,
     size: "28m²",
-    occupancy: "2 Adults",
-    beds: "2 Single Beds",
+    occupancy: "2 Dewasa",
+    beds: "2 Tempat Tidur Single",
     image: "/img/rooms/standard-twin.jpg",
     amenities: ["wifi", "tv", "shower", "coffee"],
   },
   {
     id: 2,
-    title: "Standard Room",
-    description: "Cozy room with a queen-size bed and modern amenities",
+    title: "Kamar Standard",
+    description:
+      "Kamar nyaman dengan tempat tidur queen-size dan fasilitas modern",
     price: 249999,
     size: "32m²",
-    occupancy: "2 Adults",
-    beds: "1 Queen Bed",
+    occupancy: "2 Dewasa",
+    beds: "1 Tempat Tidur Queen",
     image: "/img/rooms/standard.jpg",
     amenities: ["wifi", "tv", "shower", "coffee", "minibar"],
   },
   {
     id: 3,
-    title: "Standard View Room",
-    description: "Stunning city views with deluxe furnishings",
+    title: "Kamar dengan Pemandangan Standard",
+    description: "Pemandangan kota yang menakjubkan dengan furnitur mewah",
     price: 299999,
     size: "35m²",
-    occupancy: "2 Adults, 1 Child",
-    beds: "1 King Bed",
+    occupancy: "2 Dewasa, 1 Anak",
+    beds: "1 Tempat Tidur King",
     image: "/img/rooms/standard-view-rooms.jpg",
     amenities: ["wifi", "tv", "shower", "coffee", "minibar", "workspace"],
   },
   {
     id: 4,
-    title: "Deluxe Room",
-    description: "Spacious luxury with premium amenities and services",
+    title: "Kamar Deluxe",
+    description: "Kemewahan luas dengan fasilitas dan layanan premium",
     price: 399999,
     size: "45m²",
-    occupancy: "2 Adults, 2 Children",
-    beds: "1 King Bed, 1 Sofa Bed",
+    occupancy: "2 Dewasa, 2 Anak",
+    beds: "1 Tempat Tidur King, 1 Sofa Bed",
     image: "/img/rooms/deluxe-rooms.jpg",
     amenities: [
       "wifi",
@@ -81,12 +82,12 @@ const rooms: Room[] = [
 ];
 
 const amenityIcons: Record<AmenityType, { icon: string; label: string }> = {
-  wifi: { icon: "lucide:wifi", label: "Free WiFi" },
+  wifi: { icon: "lucide:wifi", label: "WiFi Gratis" },
   tv: { icon: "lucide:tv", label: "Smart TV" },
-  shower: { icon: "lucide:shower-head", label: "Rain Shower" },
-  coffee: { icon: "lucide:coffee", label: "Coffee Maker" },
+  shower: { icon: "lucide:shower-head", label: "Shower Hujan" },
+  coffee: { icon: "lucide:coffee", label: "Pembuat Kopi" },
   minibar: { icon: "lucide:wine", label: "Mini Bar" },
-  workspace: { icon: "lucide:laptop", label: "Work Space" },
+  workspace: { icon: "lucide:laptop", label: "Ruang Kerja" },
   bathtub: { icon: "lucide:bath", label: "Bathtub" },
 };
 
@@ -96,10 +97,11 @@ export const RoomsSection = () => {
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-4">Rooms & Rates</h2>
+        <h2 className="text-3xl font-bold text-center mb-4">Kamar & Tarif</h2>
         <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-          Discover our carefully curated selection of rooms, each designed to
-          provide the perfect blend of comfort and luxury for your stay.
+          Temukan pilihan kamar kami yang dipilih dengan cermat, masing-masing
+          dirancang untuk memberikan perpaduan sempurna antara kenyamanan dan
+          kemewahan selama menginap Anda.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {rooms.map((room) => (
@@ -141,7 +143,7 @@ export const RoomsSection = () => {
                     ))}
                     {room.amenities.length > 3 && (
                       <span className="text-sm text-gray-500">
-                        +{room.amenities.length - 3} more
+                        +{room.amenities.length - 3} lainnya
                       </span>
                     )}
                   </div>
@@ -153,7 +155,7 @@ export const RoomsSection = () => {
                           currency: "IDR",
                         }).format(room.price)}
                       </span>
-                      <span className="text-gray-500 text-sm">/night</span>
+                      <span className="text-gray-500 text-sm">/malam</span>
                     </div>
                   </div>
                   <Button
@@ -161,7 +163,7 @@ export const RoomsSection = () => {
                     color="primary"
                     variant="flat"
                     onClick={() => navigate(`/rooms/${room.id}`)}>
-                    Check Details
+                    Lihat Detail
                   </Button>
                 </div>
               </CardBody>

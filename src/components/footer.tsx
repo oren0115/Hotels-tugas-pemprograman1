@@ -5,28 +5,28 @@ import { Icon } from "@iconify/react";
 
 const footerLinks = {
   hotel: [
-    { name: "About Us", href: "/about" },
-    { name: "Careers", href: "/careers" },
+    { name: "Tentang Kami", href: "/about" },
+    { name: "Karir", href: "/careers" },
     { name: "Press", href: "/press" },
     { name: "Blog", href: "/blog" },
   ],
   rooms: [
-    { name: "Standard Twin Room", href: "/rooms" },
-    { name: "Standard Room", href: "/rooms" },
-    { name: "Standard View Room", href: "/rooms" },
-    { name: "Deluxe Room", href: "/rooms" },
+    { name: "Kamar Standard Twin", href: "/rooms" },
+    { name: "Kamar Standard", href: "/rooms" },
+    { name: "Kamar dengan Pemandangan Standard", href: "/rooms" },
+    { name: "Kamar Deluxe", href: "/rooms" },
   ],
   facilities: [
-    { name: "Swimming Pool", href: "/facilities" },
-    { name: "Restaurant", href: "/facilities" },
+    { name: "Kolam Renang", href: "/facilities" },
+    { name: "Restoran", href: "/facilities" },
     { name: "Spa & Wellness", href: "/facilities" },
-    { name: "Conference Room", href: "/facilities" },
+    { name: "Ruang Konferensi", href: "/facilities" },
   ],
   support: [
-    { name: "Help Center", href: "/help" },
-    { name: "Terms of Service", href: "/terms" },
-    { name: "Privacy Policy", href: "/privacy" },
-    { name: "Contact Us", href: "/contact" },
+    { name: "Pusat Bantuan", href: "/help" },
+    { name: "Syarat Layanan", href: "/terms" },
+    { name: "Kebijakan Privasi", href: "/privacy" },
+    { name: "Hubungi Kami", href: "/contact" },
   ],
 };
 
@@ -43,7 +43,7 @@ export const Footer = () => {
       <div className="container mx-auto px-section py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-lg font-semibold mb-4">Our Hotel</h3>
+            <h3 className="text-lg font-semibold mb-4">Hotel Kami</h3>
             <ul className="space-y-2">
               {footerLinks.hotel.map((link) => (
                 <li key={link.name}>
@@ -60,7 +60,7 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Rooms</h3>
+            <h3 className="text-lg font-semibold mb-4">Kamar</h3>
             <ul className="space-y-2">
               {footerLinks.rooms.map((link) => (
                 <li key={link.name}>
@@ -77,7 +77,7 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Facilities</h3>
+            <h3 className="text-lg font-semibold mb-4">Fasilitas</h3>
             <ul className="space-y-2">
               {footerLinks.facilities.map((link) => (
                 <li key={link.name}>
@@ -94,7 +94,7 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Support</h3>
+            <h3 className="text-lg font-semibold mb-4">Dukungan</h3>
             <ul className="space-y-2">
               {footerLinks.support.map((link) => (
                 <li key={link.name}>
@@ -115,7 +115,7 @@ export const Footer = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-default-600">
-            ©2025 Tangerang Hotels. All rights reserved.
+            ©2025 Tangerang Hotels. Semua hak dilindungi.
           </p>
           <div className="flex gap-4">
             {socialLinks.map((link) => (

@@ -11,15 +11,19 @@ import {
   Image,
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
-import { rooms, amenityIcons } from "@/pages/rooms/room-data";
+import { rooms, amenityIcons } from "../rooms/room-data";
 
 // Define the AmenityKey type based on the amenityIcons object
 type AmenityKey = keyof typeof amenityIcons;
 
 const locations = [
-  { id: "std", name: "Standard Room", cities: "Tangerang" },
-  { id: "stdtwin", name: "Standard Twin Room", cities: "Tangerang" },
-  { id: "stdview", name: "Standard View Room", cities: "Tangerang" },
+  { id: "std", name: "Kamar Standard", cities: "Tangerang" },
+  { id: "stdtwin", name: "Kamar Standard Twin", cities: "Tangerang" },
+  {
+    id: "stdview",
+    name: "Kamar dengan Pemandangan Standard",
+    cities: "Tangerang",
+  },
 ];
 
 // RoomCard component to display a single room
@@ -43,19 +47,19 @@ const RoomCard = ({ room }: { room: (typeof rooms)[0] }) => {
 
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div>
-                  <p className="text-sm text-default-500">Room Size</p>
+                  <p className="text-sm text-default-500">Ukuran Kamar</p>
                   <p className="font-semibold">{room.size}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-default-500">Occupancy</p>
+                  <p className="text-sm text-default-500">Kapasitas</p>
                   <p className="font-semibold">{room.occupancy}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-default-500">Bed Type</p>
+                  <p className="text-sm text-default-500">Jenis Tempat Tidur</p>
                   <p className="font-semibold">{room.beds}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-default-500">Price per night</p>
+                  <p className="text-sm text-default-500">Harga per malam</p>
                   <p className="font-semibold text-gold">${room.price}</p>
                 </div>
               </div>
@@ -81,13 +85,13 @@ const RoomCard = ({ room }: { room: (typeof rooms)[0] }) => {
                 size="lg"
                 className="flex-1"
                 onPress={() => navigate(`/rooms/${room.id}`)}>
-                View Details
+                Lihat Detail
               </Button>
               <Button
                 variant="flat"
                 size="lg"
                 onPress={() => navigate("/contact", { replace: true })}>
-                Inquire
+                Tanyakan
               </Button>
             </div>
           </div>
@@ -98,9 +102,9 @@ const RoomCard = ({ room }: { room: (typeof rooms)[0] }) => {
 };
 
 // Main Explore component
-export const Explore = () => {
+const Explore = () => {
   const navigate = useNavigate();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = React.useState(new URLSearchParams());
   const [isSearching, setIsSearching] = React.useState(false);
   const [results, setResults] = React.useState<typeof rooms | null>(null);
 
@@ -115,14 +119,14 @@ export const Explore = () => {
     // Simulate API call
     setTimeout(() => {
       // Filter rooms based on selected room type
-      const filteredResults = rooms.filter(room => {
+      const filteredResults = rooms.filter((room) => {
         switch (selectedLocation) {
           case "std":
-            return room.title === "Standard Room";
+            return room.title === "Kamar Standard";
           case "stdtwin":
-            return room.title === "Standard Twin Room";
+            return room.title === "Kamar Standard Twin";
           case "stdview":
-            return room.title === "Standard View Room";
+            return room.title === "Kamar dengan Pemandangan Standard";
           default:
             return true;
         }
@@ -141,23 +145,25 @@ export const Explore = () => {
   const handleLocationChange = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
-    setSearchParams({
-      location: event.target.value,
-      ...(startDate && { startDate }),
-      ...(endDate && { endDate }),
-    });
+    setSearchParams(
+      new URLSearchParams({
+        location: event.target.value,
+        ...(startDate && { startDate }),
+        ...(endDate && { endDate }),
+      })
+    );
   };
 
-  const handleDateChange = (
-    range: { start: any; end: any } | null
-  ) => {
+  const handleDateChange = (range: { start: any; end: any } | null) => {
     if (!range) return;
 
-    setSearchParams({
-      ...(selectedLocation && { location: selectedLocation }),
-      startDate: range.start.toString(),
-      endDate: range.end.toString(),
-    });
+    setSearchParams(
+      new URLSearchParams({
+        ...(selectedLocation && { location: selectedLocation }),
+        startDate: range.start.toString(),
+        endDate: range.end.toString(),
+      })
+    );
   };
 
   return (
@@ -166,13 +172,13 @@ export const Explore = () => {
       <div className="bg-primary-500 text-white py-16 m-5">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold text-center mb-8">
-            Find Your Perfect Rooms
+            Temukan Kamar yang Tepat untuk Anda
           </h1>
           <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Select
-                label="Which room do you choose?"
-                placeholder="Select a Room"
+                label="Kamar mana yang Anda pilih?"
+                placeholder="Pilih Kamar"
                 value={selectedLocation}
                 onChange={handleLocationChange}>
                 {locations.map((location) => (
@@ -188,8 +194,8 @@ export const Explore = () => {
               </Select>
 
               <DateRangePicker
-                label="When would you like to stay?"
-                aria-label="Select check-in and check-out dates"
+                label="Kapan Anda ingin menginap?"
+                aria-label="Pilih tanggal check-in dan check-out"
                 onChange={handleDateChange}
               />
             </div>
@@ -211,7 +217,7 @@ export const Explore = () => {
           </div>
         ) : (
           <div className="text-center text-gray-500">
-            Please select a location and dates to start your search
+            Silakan pilih lokasi dan tanggal untuk memulai pencarian Anda
           </div>
         )}
       </div>

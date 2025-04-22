@@ -14,13 +14,13 @@ import { Icon } from "@iconify/react";
 const contactInfo = [
   {
     icon: "lucide:map-pin",
-    title: "Address",
+    title: "Alamat",
     content: "123 Tangerang Banten Indonesia",
     link: "https://maps.google.com",
   },
   {
     icon: "lucide:phone",
-    title: "Phone",
+    title: "Telepon",
     content: "+62 8123456789",
     link: "tel:+62 8123456789",
   },
@@ -33,10 +33,10 @@ const contactInfo = [
 ];
 
 const subjects = [
-  { key: "general", label: "General Inquiry" },
-  { key: "reservation", label: "Reservation Question" },
-  { key: "feedback", label: "Feedback" },
-  { key: "support", label: "Support" },
+  { key: "general", label: "Pertanyaan Umum" },
+  { key: "reservation", label: "Pertanyaan Reservasi" },
+  { key: "feedback", label: "Masukan" },
+  { key: "support", label: "Dukungan" },
 ];
 
 const Contact = () => {
@@ -66,21 +66,21 @@ const Contact = () => {
     };
 
     if (!formData.name.trim()) {
-      newErrors.name = "Name is required";
+      newErrors.name = "Nama wajib diisi";
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
+      newErrors.email = "Email wajib diisi";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address";
+      newErrors.email = "Silakan masukkan alamat email yang valid";
     }
 
     if (!formData.subject) {
-      newErrors.subject = "Subject is required";
+      newErrors.subject = "Subjek wajib diisi";
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = "Message is required";
+      newErrors.message = "Pesan wajib diisi";
     }
 
     setErrors(newErrors);
@@ -97,13 +97,13 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate API call
+      // Simulasi panggilan API
       await new Promise((resolve) => setTimeout(resolve, 1500));
-      console.log("Form submitted:", formData);
+      console.log("Formulir terkirim:", formData);
       setIsSuccess(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
-      console.error("Error submitting form:", error);
+      console.error("Kesalahan saat mengirim formulir:", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -111,7 +111,7 @@ const Contact = () => {
 
   const handleChange = (key: string, value: string) => {
     setFormData((prev) => ({ ...prev, [key]: value }));
-    // Clear error when user starts typing
+    // Hapus error saat pengguna mulai mengetik
     if (errors[key as keyof typeof errors]) {
       setErrors((prev) => ({ ...prev, [key]: "" }));
     }
@@ -121,10 +121,10 @@ const Contact = () => {
     <main className="pt-[100px] pb-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h1 className="text-3xl font-bold mb-4">Contact Us</h1>
+          <h1 className="text-3xl font-bold mb-4">Hubungi Kami</h1>
           <p className="text-default-500 max-w-2xl mx-auto">
-            Have questions? We'd love to hear from you. Send us a message and
-            we'll respond as soon as possible.
+            Punya pertanyaan? Kami senang mendengar dari Anda. Kirimkan pesan
+            dan kami akan merespons secepatnya.
           </p>
         </div>
 
@@ -155,19 +155,20 @@ const Contact = () => {
                 <div className="p-3 rounded-full bg-success/10 mb-4 inline-block">
                   <Icon icon="lucide:check" className="w-6 h-6 text-success" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Message Sent!</h3>
+                <h3 className="text-xl font-semibold mb-2">Pesan Terkirim!</h3>
                 <p className="text-default-500 mb-4">
-                  Thank you for contacting us. We'll get back to you soon.
+                  Terima kasih telah menghubungi kami. Kami akan segera
+                  menghubungi Anda kembali.
                 </p>
                 <Button color="primary" onPress={() => setIsSuccess(false)}>
-                  Send Another Message
+                  Kirim Pesan Lagi
                 </Button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <Input
-                  label="Name"
-                  placeholder="Enter your name"
+                  label="Nama"
+                  placeholder="Masukkan nama Anda"
                   value={formData.name}
                   onChange={(e) => handleChange("name", e.target.value)}
                   isInvalid={!!errors.name}
@@ -178,7 +179,7 @@ const Contact = () => {
                 <Input
                   type="email"
                   label="Email"
-                  placeholder="Enter your email"
+                  placeholder="Masukkan email Anda"
                   value={formData.email}
                   onChange={(e) => handleChange("email", e.target.value)}
                   isInvalid={!!errors.email}
@@ -187,8 +188,8 @@ const Contact = () => {
                 />
 
                 <Select
-                  label="Subject"
-                  placeholder="Select a subject"
+                  label="Subjek"
+                  placeholder="Pilih subjek"
                   value={formData.subject}
                   onChange={(e) => handleChange("subject", e.target.value)}
                   isInvalid={!!errors.subject}
@@ -202,8 +203,8 @@ const Contact = () => {
                 </Select>
 
                 <Textarea
-                  label="Message"
-                  placeholder="Enter your message"
+                  label="Pesan"
+                  placeholder="Masukkan pesan Anda"
                   value={formData.message}
                   onChange={(e) => handleChange("message", e.target.value)}
                   minRows={4}
@@ -219,7 +220,7 @@ const Contact = () => {
                   className="w-full"
                   isLoading={isSubmitting}
                   startContent={isSubmitting ? <Spinner size="sm" /> : null}>
-                  {isSubmitting ? "Sending..." : "Send Message"}
+                  {isSubmitting ? "Mengirim..." : "Kirim Pesan"}
                 </Button>
               </form>
             )}

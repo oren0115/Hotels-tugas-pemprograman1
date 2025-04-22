@@ -2,18 +2,18 @@ import React from "react";
 import { Icon } from "@iconify/react";
 
 const facilities = [
-  { icon: "lucide:utensils", name: "Restaurant" },
-  { icon: "mdi:pool", name: "Pool" },
-  { icon: "lucide:wifi", name: "Free Wifi" },
+  { icon: "lucide:utensils", name: "Restoran" },
+  { icon: "mdi:pool", name: "Kolam Renang" },
+  { icon: "lucide:wifi", name: "WiFi Gratis" },
   { icon: "lucide:dumbbell", name: "Gym" },
-  { icon: "lucide:car", name: "Free Parking" },
+  { icon: "lucide:car", name: "Parkir Gratis" },
 ];
 
 export const FacilitiesSection = () => {
   return (
     <section className="py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Facilities</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">Fasilitas</h2>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {facilities.map((facility) => (
             <div
