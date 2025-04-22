@@ -30,7 +30,7 @@ const rooms: Room[] = [
     id: 1,
     title: "Standard Twin Room",
     description: "Perfect for sharing, featuring two comfortable single beds",
-    price: 199,
+    price: 199999,
     size: "28m²",
     occupancy: "2 Adults",
     beds: "2 Single Beds",
@@ -41,7 +41,7 @@ const rooms: Room[] = [
     id: 2,
     title: "Standard Room",
     description: "Cozy room with a queen-size bed and modern amenities",
-    price: 249,
+    price: 249999,
     size: "32m²",
     occupancy: "2 Adults",
     beds: "1 Queen Bed",
@@ -52,7 +52,7 @@ const rooms: Room[] = [
     id: 3,
     title: "Standard View Room",
     description: "Stunning city views with deluxe furnishings",
-    price: 299,
+    price: 299999,
     size: "35m²",
     occupancy: "2 Adults, 1 Child",
     beds: "1 King Bed",
@@ -63,7 +63,7 @@ const rooms: Room[] = [
     id: 4,
     title: "Deluxe Room",
     description: "Spacious luxury with premium amenities and services",
-    price: 399,
+    price: 399999,
     size: "45m²",
     occupancy: "2 Adults, 2 Children",
     beds: "1 King Bed, 1 Sofa Bed",
@@ -147,7 +147,12 @@ export const RoomsSection = () => {
                   </div>
                   <div className="flex items-center justify-between mb-4">
                     <div>
-                      <span className="text-2xl font-bold">${room.price}</span>
+                      <span className="font-semibold text-gold text-xl">
+                        {new Intl.NumberFormat("id-ID", {
+                          style: "currency",
+                          currency: "IDR",
+                        }).format(room.price)}
+                      </span>
                       <span className="text-gray-500 text-sm">/night</span>
                     </div>
                   </div>

@@ -15,20 +15,20 @@ const contactInfo = [
   {
     icon: "lucide:map-pin",
     title: "Address",
-    content: "123 Hotel Street, Cityville, ST 12345",
+    content: "123 Tangerang Banten Indonesia",
     link: "https://maps.google.com",
   },
   {
     icon: "lucide:phone",
     title: "Phone",
-    content: "+1 (555) 123-4567",
-    link: "tel:+15551234567",
+    content: "+62 8123456789",
+    link: "tel:+62 8123456789",
   },
   {
     icon: "lucide:mail",
     title: "Email",
-    content: "info@bonhotel.com",
-    link: "mailto:info@bonhotel.com",
+    content: "info@tangeranghotel.com",
+    link: "mailto:info@tangeranghotel.com",
   },
 ];
 
@@ -89,13 +89,13 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
 
     setIsSubmitting(true);
-    
+
     try {
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1500));
@@ -159,9 +159,7 @@ const Contact = () => {
                 <p className="text-default-500 mb-4">
                   Thank you for contacting us. We'll get back to you soon.
                 </p>
-                <Button
-                  color="primary"
-                  onPress={() => setIsSuccess(false)}>
+                <Button color="primary" onPress={() => setIsSuccess(false)}>
                   Send Another Message
                 </Button>
               </div>

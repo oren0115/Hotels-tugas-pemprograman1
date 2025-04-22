@@ -46,7 +46,12 @@ const RoomCard = ({ room }: { room: (typeof rooms)[0] }) => {
                 </div>
                 <div>
                   <p className="text-sm text-default-500">Price per night</p>
-                  <p className="font-semibold text-gold">${room.price}</p>
+                  <span className="text-gold font-semibold">
+                    {new Intl.NumberFormat("id-ID", {
+                      style: "currency",
+                      currency: "IDR",
+                    }).format(room.price)}
+                  </span>
                 </div>
               </div>
 

@@ -66,9 +66,15 @@ const RoomDetail = () => {
               <div>
                 <h1 className="text-3xl font-bold mb-2">{room.title}</h1>
                 <p className="text-2xl font-semibold text-gold mb-4">
-                  ${room.price}{" "}
+                  <span>
+                    {new Intl.NumberFormat("id-ID", {
+                      style: "currency",
+                      currency: "IDR",
+                    }).format(room.price)}
+                  </span>{" "}
                   <span className="text-sm text-default-500">per night</span>
                 </p>
+
                 <p className="text-default-500 mb-6">{room.description}</p>
 
                 <Tabs aria-label="Room details" className="mb-6">
