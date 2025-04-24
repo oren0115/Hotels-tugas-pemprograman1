@@ -4,67 +4,66 @@ import { Icon } from "@iconify/react";
 const facilities = [
   {
     id: 1,
-    title: "Luxury Swimming Pool",
+    title: "Kolam Renang Mewah",
     description:
-      "Temperature-controlled infinity pool with panoramic city views. Open daily from 6 AM to 10 PM.",
+      "Kolam renang infinity dengan suhu terkontrol dan pemandangan kota yang menakjubkan. Buka setiap hari dari pukul 06.00 hingga 22.00.",
     icon: "lucide:pool",
     image: "/img/fasility/swimming-pool.jpg",
     features: [
-      "Temperature controlled",
-      "Towel service",
-      "Pool bar",
-      "Loungers",
+      "Suhu terkontrol",
+      "Layanan handuk",
+      "Bar kolam renang",
+      "Tempat bersantai",
     ],
   },
   {
     id: 2,
-    title: "Modern Fitness Center",
+    title: "Pusat Kebugaran Modern",
     description:
-      "State-of-the-art equipment and personal training services available 24/7.",
+      "Peralatan mutakhir dan layanan pelatihan pribadi tersedia 24 jam.",
     icon: "lucide:dumbbell",
     image: "/img/fasility/gym.jpg",
     features: [
-      "24/7 access",
-      "Personal trainers",
-      "Modern equipment",
-      "Yoga studio",
+      "Akses 24 jam",
+      "Pelatih pribadi",
+      "Peralatan modern",
+      "Studio yoga",
     ],
   },
   {
     id: 3,
-    title: "Gourmet Restaurant",
+    title: "Restoran Gourmet",
     description:
-      "Fine dining experience with international cuisine and local specialties.",
+      "Pengalaman bersantap mewah dengan hidangan internasional dan spesialisasi lokal.",
     icon: "lucide:utensils",
     image: "/img/fasility/geurmet-food.jpg",
     features: [
-      "Breakfast buffet",
-      "À la carte dining",
-      "Wine cellar",
-      "Private dining",
+      "Buffet sarapan",
+      "Makan à la carte",
+      "Ruang penyimpanan anggur",
+      "Ruang makan pribadi",
     ],
   },
   {
     id: 4,
-    title: "Business Center",
-    description: "Fully equipped meeting rooms and conference facilities.",
+    title: "Pusat Bisnis",
+    description: "Ruang rapat lengkap dan fasilitas konferensi profesional.",
     icon: "lucide:briefcase",
     image: "/img/fasility/bussines-center.jpg",
     features: [
-      "Meeting rooms",
-      "Video conferencing",
-      "High-speed WiFi",
-      "Printing services",
+      "Ruang rapat",
+      "Konferensi video",
+      "WiFi kecepatan tinggi",
+      "Layanan cetak",
     ],
   },
   {
     id: 5,
-    title: "Spa & Wellness",
-    description:
-      "Relaxation and rejuvenation with professional spa treatments.",
+    title: "Spa & Kesehatan",
+    description: "Relaksasi dan peremajaan dengan perawatan spa profesional.",
     icon: "lucide:flower",
     image: "/img/fasility/spa.jpg",
-    features: ["Massage therapy", "Sauna", "Steam room", "Beauty salon"],
+    features: ["Terapi pijat", "Sauna", "Ruang uap", "Salon kecantikan"],
   },
 ];
 
@@ -109,10 +108,10 @@ const Facilities = () => {
     <main className="pt-[100px] pb-16">
       <div className="container mx-auto px-section">
         <div className="text-center mb-12">
-          <h1 className="text-3xl font-bold mb-4">Our Facilities</h1>
+          <h1 className="text-3xl font-bold mb-4">Fasilitas Kami</h1>
           <p className="text-default-500 max-w-2xl mx-auto">
-            Experience luxury and comfort with our world-class facilities
-            designed to make your stay exceptional.
+            Rasakan kemewahan dan kenyamanan dengan fasilitas kelas dunia kami
+            yang dirancang untuk membuat masa menginap Anda luar biasa.
           </p>
         </div>
 

@@ -82,7 +82,7 @@ const RoomCard = ({ room }: { room: (typeof rooms)[0] }) => {
                 variant="flat"
                 size="lg"
                 onPress={() => navigate("/contact", { replace: true })}>
-                Inquire
+                Hubungi Kami
               </Button>
             </div>
           </div>

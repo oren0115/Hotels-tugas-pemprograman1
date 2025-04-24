@@ -11,8 +11,6 @@ const Facilities = React.lazy(() => import("../pages/facilities"));
 const Contact = React.lazy(() => import("../pages/contact"));
 const About = React.lazy(() => import("../pages/about"));
 const Careers = React.lazy(() => import("../pages/careers"));
-const Press = React.lazy(() => import("../pages/press"));
-const Blog = React.lazy(() => import("../pages/blog"));
 
 export const AppRoutes = () => {
   return (
@@ -32,8 +30,6 @@ export const AppRoutes = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/careers" element={<Careers />} />
-        <Route path="/press" element={<Press />} />
-        <Route path="/blog" element={<Blog />} />
       </Routes>
     </React.Suspense>
   );

@@ -7,8 +7,6 @@ const footerLinks = {
   hotel: [
     { name: "Tentang Kami", href: "/about" },
     { name: "Karir", href: "/careers" },
-    { name: "Press", href: "/press" },
-    { name: "Blog", href: "/blog" },
   ],
   rooms: [
     { name: "Kamar Standard Twin", href: "/rooms" },

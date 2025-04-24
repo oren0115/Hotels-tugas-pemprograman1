@@ -20,9 +20,9 @@ const RoomDetail = () => {
     return (
       <main className="pt-[100px] pb-16">
         <div className="container mx-auto px-section text-center">
-          <h1 className="text-3xl font-bold mb-4">Room Not Found</h1>
+          <h1 className="text-3xl font-bold mb-4">Kamar Tidak Ditemukan</h1>
           <Button color="primary" onPress={() => navigate("/rooms")}>
-            Back to Rooms
+            Kembali ke Daftar Kamar
           </Button>
         </div>
       </main>
@@ -37,7 +37,7 @@ const RoomDetail = () => {
           className="mb-6"
           startContent={<Icon icon="lucide:arrow-left" />}
           onPress={() => navigate("/rooms")}>
-          Back to Rooms
+          Kembali ke Daftar Kamar
         </Button>
 
         <Card>
@@ -55,7 +55,7 @@ const RoomDetail = () => {
                     <Image
                       key={index}
                       removeWrapper
-                      alt={`${room.title} view ${index + 1}`}
+                      alt={`Tampilan ${room.title} ${index + 1}`}
                       className="w-full h-32 object-cover rounded-lg"
                       src={img}
                     />
@@ -72,29 +72,31 @@ const RoomDetail = () => {
                       currency: "IDR",
                     }).format(room.price)}
                   </span>{" "}
-                  <span className="text-sm text-default-500">per night</span>
+                  <span className="text-sm text-default-500">per malam</span>
                 </p>
 
                 <p className="text-default-500 mb-6">{room.description}</p>
 
-                <Tabs aria-label="Room details" className="mb-6">
-                  <Tab key="details" title="Details">
+                <Tabs aria-label="Detail Kamar" className="mb-6">
+                  <Tab key="details" title="Detail">
                     <div className="grid grid-cols-2 gap-4 mt-4">
                       <div>
-                        <p className="text-sm text-default-500">Room Size</p>
+                        <p className="text-sm text-default-500">Ukuran Kamar</p>
                         <p className="font-semibold">{room.size}</p>
                       </div>
                       <div>
-                        <p className="text-sm text-default-500">Occupancy</p>
+                        <p className="text-sm text-default-500">Kapasitas</p>
                         <p className="font-semibold">{room.occupancy}</p>
                       </div>
                       <div>
-                        <p className="text-sm text-default-500">Bed Type</p>
+                        <p className="text-sm text-default-500">
+                          Jenis Tempat Tidur
+                        </p>
                         <p className="font-semibold">{room.beds}</p>
                       </div>
                     </div>
                   </Tab>
-                  <Tab key="amenities" title="Amenities">
+                  <Tab key="amenities" title="Fasilitas">
                     <div className="grid grid-cols-2 gap-4 mt-4">
                       {room.features.map((feature, index) => (
                         <div key={index} className="flex items-center gap-2">
@@ -107,7 +109,7 @@ const RoomDetail = () => {
                       ))}
                     </div>
                   </Tab>
-                  <Tab key="policies" title="Policies">
+                  <Tab key="policies" title="Kebijakan">
                     <div className="space-y-4 mt-4">
                       {Object.entries(room.policies).map(([key, value]) => (
                         <div key={key}>
@@ -145,13 +147,13 @@ const RoomDetail = () => {
 
                 <div className="flex gap-4">
                   <Button color="primary" size="lg" className="flex-1">
-                    Book Now
+                    Pesan Sekarang
                   </Button>
                   <Button
                     variant="flat"
                     size="lg"
                     onPress={() => navigate("/contact")}>
-                    Contact Us
+                    Hubungi Kami
                   </Button>
                 </div>
               </div>

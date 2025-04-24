@@ -2,11 +2,11 @@ import { Card, CardBody } from "@heroui/react";
 
 const About = () => {
   return (
-    <div className="container mx-auto py-16">
+    <div className="container mx-auto py-16 m-5">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">About Us</h1>
+        <h1 className="text-4xl font-bold mb-4">Tentang Kami</h1>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          Discover our story and commitment to excellence in hospitality
+          Temukan kisah kami dan komitmen terhadap keunggulan dalam perhotelan
         </p>
       </div>
 
@@ -14,12 +14,12 @@ const About = () => {
         <div>
           <Card>
             <CardBody>
-              <h2 className="text-2xl font-semibold mb-4">Our Story</h2>
+              <h2 className="text-2xl font-semibold mb-4">Kisah Kami</h2>
               <p className="text-gray-600">
-                Founded with a vision to redefine luxury hospitality, our hotel
-                has been serving guests with exceptional care and attention to
-                detail since our establishment. We believe in creating memorable
-                experiences that last a lifetime.
+                Didirikan dengan visi untuk mendefinisikan ulang kemewahan dalam
+                perhotelan, hotel kami telah melayani tamu dengan perhatian dan
+                pelayanan istimewa sejak awal berdirinya. Kami percaya dalam
+                menciptakan pengalaman berkesan yang tak terlupakan.
               </p>
             </CardBody>
           </Card>
@@ -28,11 +28,11 @@ const About = () => {
         <div>
           <Card>
             <CardBody>
-              <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
+              <h2 className="text-2xl font-semibold mb-4">Misi Kami</h2>
               <p className="text-gray-600">
-                To provide unparalleled hospitality experiences through
-                personalized service, luxurious accommodations, and a commitment
-                to excellence in every aspect of our operations.
+                Memberikan pengalaman perhotelan yang tiada tanding melalui
+                pelayanan yang dipersonalisasi, akomodasi mewah, dan komitmen
+                terhadap keunggulan di setiap aspek operasional kami.
               </p>
             </CardBody>
           </Card>
@@ -41,24 +41,26 @@ const About = () => {
         <div className="md:col-span-2">
           <Card>
             <CardBody>
-              <h2 className="text-2xl font-semibold mb-4">Our Values</h2>
+              <h2 className="text-2xl font-semibold mb-4">Nilai-Nilai Kami</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
-                  <h3 className="text-xl font-medium mb-2">Excellence</h3>
+                  <h3 className="text-xl font-medium mb-2">Keunggulan</h3>
                   <p className="text-gray-600">
-                    We strive for excellence in every service we provide
+                    Kami berupaya memberikan layanan terbaik dalam setiap hal
+                    yang kami lakukan
                   </p>
                 </div>
                 <div>
-                  <h3 className="text-xl font-medium mb-2">Integrity</h3>
+                  <h3 className="text-xl font-medium mb-2">Integritas</h3>
                   <p className="text-gray-600">
-                    We conduct our business with honesty and transparency
+                    Kami menjalankan bisnis dengan kejujuran dan keterbukaan
                   </p>
                 </div>
                 <div>
-                  <h3 className="text-xl font-medium mb-2">Innovation</h3>
+                  <h3 className="text-xl font-medium mb-2">Inovasi</h3>
                   <p className="text-gray-600">
-                    We continuously improve and innovate our services
+                    Kami terus berinovasi dan meningkatkan layanan kami secara
+                    berkelanjutan
                   </p>
                 </div>
               </div>
