@@ -34,10 +34,6 @@ export const Navbar = () => {
     { name: "Explore", path: "/explore" },
     { name: "Rooms & Rates", path: "/rooms" },
     { name: "Facilities", path: "/facilities" },
-    // { name: "About Us", path: "/about" },
-    // { name: "Careers", path: "/careers" },
-    // { name: "Press", path: "/press" },
-    // { name: "Blog", path: "/blog" },
     { name: "Contact Us", path: "/contact" },
   ];
 
@@ -58,14 +54,14 @@ export const Navbar = () => {
       <NavbarContent className="sm:hidden pr-3" justify="center">
         <NavbarBrand>
           <AcmeLogo />
-          <Link className="font-bold text-inherit" onClick={() => navigate("/")}>Tangerang Hotels</Link>
+          <Link className="font-bold text-inherit" onPress={() => navigate("/")}>Tangerang Hotels</Link>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="end">
         <NavbarBrand >
           <AcmeLogo />
-          <Link className="font-bold text-inherit" onClick={() => navigate("/")}>Tangerang Hotels</Link>
+          <Link className="font-bold text-inherit" onPress={() => navigate("/")}>Tangerang Hotels</Link>
         </NavbarBrand>
         {menuItems.map((item) => (
           <NavbarItem key={item.path} >
@@ -84,7 +80,7 @@ export const Navbar = () => {
               to={item.path}
               size="lg"
               className="w-full text-inherit font-medium"
-              onClick={() => setIsMenuOpen(false)}>
+              onPress={() => setIsMenuOpen(false)}>
               {item.name}
             </Link>
           </NavbarMenuItem>

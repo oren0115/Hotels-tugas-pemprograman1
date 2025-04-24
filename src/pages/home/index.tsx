@@ -24,7 +24,7 @@ const Home = () => {
             size="lg"
             color="primary"
             className="bg-[#FFD700] hover:bg-[#DAA520]  font-bold"
-            onClick={() => navigate("/rooms")}>
+            onPress={() => navigate("/rooms")}>
             JELAJAHI
           </Button>
         </div>
